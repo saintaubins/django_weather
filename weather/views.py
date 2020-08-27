@@ -1,12 +1,13 @@
 import requests
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import City
 from .forms import CityForm
 
 # tutorial from https://www.youtube.com/watch?v=v7xjdXWZafY
 
 def index(request):
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&APPID=4d830bb039412b9de8ccda2e3b32f1ba'
+    skey = '4d830bb039412b9de8ccda2e3b32f1ba'
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&APPID='+ skey
     # not using this line anymore it was for building out earlier in the app city = 'London'
 
     # old line to debug progress building
@@ -14,12 +15,35 @@ def index(request):
     # print(r.text)
     # line above is a prlimanary progress statement, it doesn't work with the following lines of code.
 
+    err_msg = ''
+    message = ''
+    message_class = ''
 
     if request.method == 'POST':
         #print(request.POST) used for setup
         form = CityForm(request.POST)
-        form.save()
 
+        if form.is_valid():
+            new_city = form.cleaned_data['name'].upper()
+            existing_city_count = City.objects.filter(name=new_city).count()
+
+            if existing_city_count == 0:
+                r = requests.get(url.format(new_city)).json()
+                print(r)
+                if r['cod'] == 200:
+                    form.save()
+                else:
+                    err_msg = 'City does not exist in the world!'
+            else:
+                err_msg = 'City already exists in the database!'
+        if err_msg:
+            message = err_msg
+            message_class = 'is-danger'
+        else:
+            message = 'City added successfully!'
+            message_class = 'is-success'
+
+    print(err_msg)
     form = CityForm()
 
     cities = City.objects.all()
@@ -44,5 +68,17 @@ def index(request):
     # to the return statement below.
     # will now update weather.html
 
-    context = {'weather_data' : weather_data, 'form' : form}
+    context = {
+        'weather_data' : weather_data, 
+        'form' : form,
+        'message' : message,
+        'message_class' : message_class
+
+    }
     return render(request, 'weather.html', context)
+
+def delete_city(request, city_name):
+
+    City.objects.get(name=city_name).delete()
+
+    return redirect('home')
