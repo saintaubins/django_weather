@@ -1,13 +1,17 @@
 import requests
+import os
 from django.shortcuts import render, redirect
 from .models import City
 from .forms import CityForm
 
 # tutorial from https://www.youtube.com/watch?v=v7xjdXWZafY
+# deployment from https://www.youtube.com/watch?v=ex7vAsmCk8o
 
 def index(request):
-    skey = '4d830bb039412b9de8ccda2e3b32f1ba'
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&APPID='+ skey
+    WEATHER_SECRET_KEY = os.environ.get('WEATHER_API_KEY')
+
+    # WEATHER_API_KEY
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&APPID='+ WEATHER_SECRET_KEY
     # not using this line anymore it was for building out earlier in the app city = 'London'
 
     # old line to debug progress building
