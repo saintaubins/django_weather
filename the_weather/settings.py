@@ -16,7 +16,7 @@ import os
 
 import django_on_heroku
 
-#WEATHER_SECRET_KEY = os.environ.get('WEATHER_API_KEY')
+WEATHER_SECRET_KEY = os.environ.get('WEATHER_API_KEY')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,10 +26,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = os.environ.get('WEATHER_KEY')
+SECRET_KEY = os.environ.get('WEATHER_KEY')
 
-SECRET_KEY = 'g+!61=qu2r5)omi!*owu_(%a%bj%jq6a!(w+r8_e#!5r1&1!ll'
-# WEATHER_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -95,7 +93,6 @@ DATABASES = {
     }
 }
 
-#postgres://uwumozjnjfurgi:6ad26ccc3d524e62ea10ccdee96dfe10a74d56d4fda61f23c9a3ac480b82834e@ec2-54-160-120-28.compute-1.amazonaws.com:5432/d29f0dtc856cvu
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -137,5 +134,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 #Activate Django-Heroku
 django_on_heroku.settings(locals())
