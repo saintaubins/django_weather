@@ -84,14 +84,15 @@ WSGI_APPLICATION = 'the_weather.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'da4b429oc4lvoa',
-        'HOST': 'ec2-50-17-21-170.compute-1.amazonaws.com',
+        'NAME': 'd29f0dtc856cvu',
+        'HOST': 'ec2-54-160-120-28.compute-1.amazonaws.com',
         'PORT': 5432,
-        'USER': 'lzhhblqsmuledt',
-        'PASSWORD': 'e7accff59b2a5370cd9c22b3b52e538ec5090c33e2cdbd83b1fb1e7222497621'
+        'USER': 'uwumozjnjfurgi',
+        'PASSWORD': '6ad26ccc3d524e62ea10ccdee96dfe10a74d56d4fda61f23c9a3ac480b82834e'
     }
 }
-#postgres://lzhhblqsmuledt:e7accff59b2a5370cd9c22b3b52e538ec5090c33e2cdbd83b1fb1e7222497621@ec2-50-17-21-170.compute-1.amazonaws.com:5432/da4b429oc4lvoa
+
+#postgres://uwumozjnjfurgi:6ad26ccc3d524e62ea10ccdee96dfe10a74d56d4fda61f23c9a3ac480b82834e@ec2-54-160-120-28.compute-1.amazonaws.com:5432/d29f0dtc856cvu
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
