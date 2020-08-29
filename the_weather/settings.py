@@ -28,9 +28,9 @@ SECRET_KEY = os.environ.get('WEATHER_KEY')
 # WEATHER_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['weather-app-sem.herokuapp.com', '127.0.0.1', 'semsaintaubin.com']
 
 
 # Application definition
