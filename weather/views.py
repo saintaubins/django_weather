@@ -8,6 +8,7 @@ from .forms import CityForm
 # deployment from https://www.youtube.com/watch?v=ex7vAsmCk8o
 
 def index(request):
+    
     WEATHER_SECRET_KEY = os.environ.get('WEATHER_API_KEY')
 
     # WEATHER_API_KEY
