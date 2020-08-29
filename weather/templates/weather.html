@@ -25,16 +25,16 @@
                 <div class="column is-offset-4 is-4">
                     <form method="POST">
                         {% csrf_token %}
-                        <div class="field has-addons">
-                            <div class="control is-expanded">
-                                {{ form.name }}
+                            <div class="field has-addons">
+                                <div class="control is-expanded">
+                                    {{ form.name }}
+                                </div>
+                                <div class="control">
+                                    <button type="submit" class="button is-info">
+                                        Add City
+                                    </button>
+                                </div>
                             </div>
-                            <div class="control">
-                                <button type="submit" class="button is-info">
-                                    Add City
-                                </button>
-                            </div>
-                        </div>
                         {% if message %}
                             <div class="notification {{ message_class }}">{{ message }}</div>
                         {% endif %}
