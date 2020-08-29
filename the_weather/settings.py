@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+# deployment https://www.youtube.com/watch?v=GMbVzl_aLxM&t=64s
+
 import os
 
 import django_on_heroku
@@ -30,7 +32,7 @@ SECRET_KEY = os.environ.get('WEATHER_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['weather-app-sem.herokuapp.com', '127.0.0.1', 'semsaintaubin.com']
+ALLOWED_HOSTS = ['weather-app-sem-saint.herokuapp.com', '127.0.0.1', 'semsaintaubin.com']
 
 
 # Application definition
