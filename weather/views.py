@@ -9,7 +9,9 @@ from .forms import CityForm
 
 def index(request):
     
-    WEATHER_SECRET_KEY = os.environ.get('WEATHER_API_KEY')
+    #WEATHER_SECRET_KEY = os.environ.get('WEATHER_API_KEY')
+
+    WEATHER_SECRET_KEY = '4d830bb039412b9de8ccda2e3b32f1ba'
 
     # WEATHER_API_KEY
     url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&APPID='+ WEATHER_SECRET_KEY

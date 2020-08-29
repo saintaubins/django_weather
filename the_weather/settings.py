@@ -16,7 +16,7 @@ import os
 
 import django_on_heroku
 
-WEATHER_SECRET_KEY = os.environ.get('WEATHER_API_KEY')
+#WEATHER_SECRET_KEY = os.environ.get('WEATHER_API_KEY')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,7 +26,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('WEATHER_KEY')
+#SECRET_KEY = os.environ.get('WEATHER_KEY')
+
+SECRET_KEY = 'g+!61=qu2r5)omi!*owu_(%a%bj%jq6a!(w+r8_e#!5r1&1!ll'
 # WEATHER_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
