@@ -10,11 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
-# deployment https://www.youtube.com/watch?v=GMbVzl_aLxM&t=64s
+# deployment https://www.youtube.com/watch?v=Y4c4ickks2A
 
 import os
 
-import django_on_heroku
+#import django_on_heroku
 
 WEATHER_SECRET_KEY = os.environ.get('WEATHER_API_KEY')
 
@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('WEATHER_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['weather-app-sem-saint.herokuapp.com', '127.0.0.1', 'semsaintaubin.com']
+ALLOWED_HOSTS = ['weather-app-sem-saint.herokuapp.com', '127.0.0.1', 'semsaintaubin.com', 'saintaubins.pythonanywhere.com']
 
 
 # Application definition
@@ -84,12 +84,8 @@ WSGI_APPLICATION = 'the_weather.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd29f0dtc856cvu',
-        'HOST': 'ec2-54-160-120-28.compute-1.amazonaws.com',
-        'PORT': 5432,
-        'USER': 'uwumozjnjfurgi',
-        'PASSWORD': '6ad26ccc3d524e62ea10ccdee96dfe10a74d56d4fda61f23c9a3ac480b82834e'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -136,4 +132,4 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 #Activate Django-Heroku
-django_on_heroku.settings(locals())
+#django_on_heroku.settings(locals())

@@ -5,7 +5,7 @@ from .models import City
 from .forms import CityForm
 
 # tutorial from https://www.youtube.com/watch?v=v7xjdXWZafY
-# deployment from https://www.youtube.com/watch?v=ex7vAsmCk8o
+# deployment from https://www.youtube.com/watch?v=Y4c4ickks2A
 
 def index(request):
     
